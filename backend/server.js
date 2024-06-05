@@ -16,6 +16,7 @@ const {
 
 const app = express();
 const bodyParser = require  ("body-parser");
+
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
@@ -26,7 +27,11 @@ app.get("/dbinitialize", async function (req, res) {
   res.setHeader("Content-Type", "application/json");
   res.end(JSON.stringify(data));
 });
+
+
+
 // ============== Teacher Related endpoints ==============
+
 
 app.get("/listTeachers", async function (req, res) {
   console.log("Request received to list teachers");
@@ -36,6 +41,7 @@ app.get("/listTeachers", async function (req, res) {
   res.end(JSON.stringify(data));
 });
 
+
 app.post("/getTeacherInfo", async function (req, res) {
   let reqBody = req.body;
   console.log("Request received to get Teacher Info");
@@ -44,6 +50,7 @@ app.post("/getTeacherInfo", async function (req, res) {
   res.setHeader("Content-Type", "application/json");
   res.end(JSON.stringify(data));
 });
+
 
 app.post("/addTeacher", async function (req, res) {
   let reqBody = req.body;
@@ -56,6 +63,7 @@ app.post("/addTeacher", async function (req, res) {
   res.end(JSON.stringify(data));
 });
 
+
 app.post("/editTeacher", async function (req, res) {
   let reqBody = req.body;
   console.log(
@@ -67,6 +75,7 @@ app.post("/editTeacher", async function (req, res) {
   res.end(JSON.stringify(data));
 });
 
+
 app.post("/deleteTeacher", async function (req, res) {
   let reqBody = req.body;
   console.log(
@@ -77,6 +86,9 @@ app.post("/deleteTeacher", async function (req, res) {
   res.setHeader("Content-Type", "application/json");
   res.end(JSON.stringify(data));
 });
+
+
+
 
 // ============== Student Related endpoints ==============
 
